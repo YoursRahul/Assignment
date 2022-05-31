@@ -1,0 +1,30 @@
+﻿@model MVC_TASK.Models.tblEmployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div> 
+        
+         <h2>Welcome, @Session["employee_name"].ToString() </h2>
+          @{
+            DateTime birth_Date = Model.Birth_Date.Value;
+            DateTime todays_date = DateTime.Now;
+
+           TimeSpan t = todays_date.Subtract(birth_Date);
+           int year = (int)Math.Round(t.TotalDays / 365);
+           
+           }
+        <h4>Your Age is @year years</h4>
+       <button class="btn"> @Html.ActionLink("Log Out", "Logout")</button>
+    </div>
+</body>
+</html>

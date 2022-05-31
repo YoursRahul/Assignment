@@ -1,0 +1,61 @@
+﻿@model MVC_TASK.Models.EmployeeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+   
+    <div>
+        @using (Html.BeginForm())
+{
+    <div class="panel panel-default" style="margin-left:35%; margin-right:30%">
+        <div class="panel-heading">
+            <h2>Registration Form</h2>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>First Name</td>
+                    <td>@Html.TextBoxFor(e => e.First_Name)</td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>@Html.TextBoxFor(e => e.Last_Name)</td>
+                </tr>
+                <tr>
+                    <td>Birth Date</td>
+                    <td>@Html.TextBoxFor(e => e.Birth_Date, new { @type = "date" })</td>
+                </tr>
+                <tr>
+                    <td>Email Address</td>
+                    <td>@Html.TextBoxFor(e => e.Email_Address, new { @type = "email" })</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>@Html.TextBoxFor(e => e.User_Password)</td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>@Html.TextBoxFor(e => e.Confirm_Password)</td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Register" class="btn btn-primary" />
+            <input type="reset" value="Reset" class="btn btn-danger" />
+            <button class="btn"> @Html.ActionLink("Back", "Login")</button>
+            <h5 style="color:red">@ViewBag.msg</h5>
+        </div>
+    </div>
+}
+    </div>
+</body>
+</html>

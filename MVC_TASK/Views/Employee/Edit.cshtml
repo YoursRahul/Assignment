@@ -1,0 +1,49 @@
+﻿@model MVC_TASK.Models.tblEmployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <h3> Student Form </h3>
+    <br />
+    <div>
+        @using (Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td> Employee ID</td>
+                    <td> @Html.TextBoxFor(e => e.Employee_ID) </td>
+                </tr>
+                <tr>
+                    <td> First Name </td>
+                    <td> @Html.TextBoxFor(e => e.First_Name) </td>
+                </tr>
+                <tr>
+                    <td> Last Name </td>
+                    <td> @Html.TextBoxFor(e => e.Last_Name) </td>
+                </tr>
+                <tr>
+                    <td> Birth Date </td>
+                    <td> @Html.TextBoxFor(e => e.Birth_Date) </td>
+                </tr>
+                <tr>
+                    <td> Email Address </td>
+                    <td> @Html.TextBoxFor(e => e.Email_Address) </td>
+                </tr>
+
+                <tr>
+                    <td> <input type="submit" value="Update" /> </td>
+                </tr>
+            </table>
+
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model MVC_TASK.Models.tblEmployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+   
+@using (Html.BeginForm())
+{
+    <div class="panel panel-default" style="margin-left:35%; margin-right:30%" >
+        <div class="panel-heading">
+            <h2 style="color:red;text-align:center">Employee Login</h2>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td>Email Address</td>
+                    <td>@Html.TextBoxFor(e => e.Email_Address)</td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>@Html.TextBoxFor(e => e.User_Password)</td>
+                </tr>
+            </table>
+        </div>
+
+    <div class="panel-footer">
+        <input type="submit" value="Login" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-info" />
+        <button class="btn"> @Html.ActionLink("Back", "Log")</button><br /><br />
+   
+      <h5 style="text-align:center"> @Html.ActionLink("Create New Account", "Register")</h5>
+        <h5 style="color:red">@ViewBag.msg</h5>
+   </div>
+    </div>
+}
+
+   
+</body>
+</html>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MVC_TASK.Models.tblEmployee>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminDashboard</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+    <script>
+        var empname = "";
+
+        $(document).ready(function () {
+            GetEmployee();
+            $("#selectemp").change(function () {
+                GetEmployeeById();
+            })
+        })
+
+        function GetEmployee() {
+            $.ajax({
+                url: '/Employee/GetEmployee',
+                menthod: 'get',
+                contentType: 'application / json',
+                success: function (resp) {
+                    $("#selectemp").empty;
+                    $.each(resp, function (i, d) {
+
+                        $("#selectemp").append("<option value='" + d.Employee_ID + "'>" + d.First_Name+" "+d.Last_Name + "</option>");
+                    })
+                }
+            })
+        }
+
+        function GetEmployeeById() {
+            var id = $("#selectemp").val();
+            $.ajax({
+                url: '/Employee/GetEmployeeByID/' + id,
+                menthod: 'get',
+                contentType: 'application / json',
+                success: function (resp) {
+                    var d = resp;
+                    console.log(d);
+                    empname = d.First_Name;
+                    
+                  
+                   
+                    var r = $("#fname").val(d.First_Name );
+                    var l=  $("#lname").val(d.Last_Name);
+                    var t = $("#dob").val(d.Birth_Date);
+                    var s = $("#email").val(d.Email_Address);
+                    
+                    
+                }
+            })
+        }
+
+        
+    </script>
+
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <select id="selectemp" class="form-control" style="margin-right:50%"><option selected>Select Employee</option></select>
+        </div>
+        <div class="panel-body">
+          
+            <label>First Name :<input id="fname" class="form-control"/></label><br />
+            <label>Last Name :<input id="lname" class="form-control" /></label><br />
+            <label> Date Of Birth :<input id="dob" class="form-control" /></label><br />
+            <label> Email Address :<input id="email" class="form-control" /></label>
+        </div>
+        <div class="panel-footer">
+        
+            <button class="btn">  @Html.ActionLink("Edit", "Edit")</button>
+            <button class="btn">  @Html.ActionLink("Delete", "Delete")</button>
+            <button class="btn">  @Html.ActionLink("logout", "Adminlogout")</button>
+        </div>
+    </div>
+   
+</body>
+</html>

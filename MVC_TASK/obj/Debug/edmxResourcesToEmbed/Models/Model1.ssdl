@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeePortalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="Employee_ID" />
+    </Key>
+    <Property Name="Employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="First_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Last_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Birth_Date" Type="date" />
+    <Property Name="Email_Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="User_Password" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="EmployeePortalModelStoreContainer">
+    <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

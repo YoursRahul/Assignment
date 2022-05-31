@@ -1,0 +1,45 @@
+﻿@model MVC_TASK.Models.EmployeeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminLogin</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post">
+        <div class="panel panel-default" style="margin-left:35%; margin-right:30%">
+            <div class="panel-heading">
+                <h2 style="color:red;text-align:center">Admin Login</h2>
+
+            </div>
+            <div class="panel-body">
+                <table>
+                    <tr>
+                        <td>User Name</td>
+                        <td><input type="text" name="uname" /></td>
+                        </tr>
+                    <tr>
+                        <td> Password</td>
+                        <td><input type="password" name="pass" /></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="panel-footer">
+                <input type="submit" value="Login" class="btn btn-primary" />
+                <input type="reset" value="Reset" class="btn btn-info" />
+                <button class="btn"> @Html.ActionLink("Back", "Log")</button>
+
+
+                <h5 style="color:red">@ViewBag.msg</h5>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
